@@ -368,8 +368,17 @@ public class TwaskListAdapter extends ArrayAdapter<TaskModelForList> {
             String cachedResult = task.getCachedLabel(KEY_TIMES);
             if(cachedResult == null) {
                 Integer elapsed = task.getElapsedSeconds();
+                
+                
+                //if(task.getTimerStart() != null)
+                   // elapsed += ((System.currentTimeMillis() - task.getTimerStart().getTime())/1000);
+                
                 if(task.getTimerStart() != null)
-                    elapsed += ((System.currentTimeMillis() - task.getTimerStart().getTime())/1000);
+                {
+                    Long hengxtemp = (System.currentTimeMillis() - task.getTimerStart().getTime())/1000;
+                    elapsed = elapsed + hengxtemp.intValue();
+                }
+                
                 Integer estimated = task.getEstimatedSeconds();
                 StringBuilder label = new StringBuilder();
                 if(estimated > 0) {

@@ -403,6 +403,11 @@ public class NumberPickerControlSet extends LinearLayout implements OnClickListe
                 return filtered;
             }
         }
+
+		public int getInputType() {
+			// TODO Auto-generated method stub
+			return 0;
+		}
     }
 
     private int getSelectedPos(String str) {
